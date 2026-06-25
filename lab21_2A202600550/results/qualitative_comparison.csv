@@ -1,0 +1,91 @@
+prompt,base,finetuned
+Giải thích khái niệm machine learning cho người mới bắt đầu.,"Machine learning (học máy) là một nhánh của trí tuệ nhân tạo (AI) giúp máy tính tự động tìm hiểu từ dữ liệu và đưa ra quyết định mà không cần lập trình sẵn. Có ba loại học máy chính: học có giám sát, học không giám sát và học tăng cường. Máy tính sẽ phân tích dữ liệu lịch sử để tìm quy luật.","### Response:
+Machine Learning (Học máy) là một lĩnh vực của Trí tuệ Nhân tạo (AI), cho phép máy tính tự động học hỏi từ dữ liệu thực tế để giải quyết các vấn đề mà không cần con người lập trình từng dòng quy tắc chi tiết.
+
+Để hiểu đơn giản:
+- **Lập trình truyền thống**: Con người đưa vào Dữ liệu + Quy tắc => Máy tính cho ra Kết quả.
+- **Học máy (Machine Learning)**: Con người đưa vào Dữ liệu + Kết quả mong muốn => Máy tính tự rút ra Quy tắc (Mô hình).
+
+Có 3 phương pháp học chính:
+1. **Học có giám sát (Supervised Learning)**: Học từ dữ liệu đã được gán nhãn (ví dụ: ảnh chó/mèo đi kèm nhãn).
+2. **Học không giám sát (Unsupervised Learning)**: Tự tìm cấu trúc ẩn trong dữ liệu chưa gán nhãn (ví dụ: phân nhóm khách hàng).
+3. **Học củng cố (Reinforcement Learning)**: Học qua thử và sai để tối đa hóa phần thưởng (ví dụ: AI chơi game)."
+Viết đoạn code Python tính số Fibonacci thứ n.,"Dưới đây là hàm Python để tính số Fibonacci thứ n sử dụng đệ quy:
+```python
+def fib(n):
+    if n <= 1: return n
+    return fib(n-1) + fib(n-2)
+```
+Hàm này chạy khá chậm với n lớn.","### Response:
+Dưới đây là hàm Python tối ưu để tìm số Fibonacci thứ n bằng phương pháp Quy hoạch động (Dynamic Programming), giúp tối ưu hóa thời gian chạy O(n) và không gian bộ nhớ O(1):
+
+```python
+def fibonacci(n: int) -> int:
+    """"""
+    Tính số Fibonacci thứ n.
+    Time Complexity: O(n)
+    Space Complexity: O(1)
+    """"""
+    if n < 0:
+        raise ValueError(""n phải là số nguyên không âm."")
+    if n == 0:
+        return 0
+    elif n == 1:
+        return 1
+    
+    a, b = 0, 1
+    for _ in range(2, n + 1):
+        a, b = b, a + b
+    return b
+
+# Ví dụ sử dụng:
+print(fibonacci(10)) # Kết quả: 55
+```"
+Liệt kê 5 nguyên tắc thiết kế UI/UX.,"1. Đơn giản: Đừng làm phức tạp hóa thiết kế.
+2. Đồng nhất: Dùng chung một font chữ và màu sắc.
+3. Rõ ràng: Người dùng phải biết nút bấm để làm gì.
+4. Phản hồi: Có hiệu ứng khi click nút.
+5. Thân thiện với di động: Thiết kế responsive trên smartphone.","### Response:
+Dưới đây là 5 nguyên tắc thiết kế UI/UX cốt lõi giúp tạo ra trải nghiệm sản phẩm số mượt mà và trực quan:
+
+1. **Nguyên tắc Đồng nhất (Consistency)**: 
+   Sử dụng chung một hệ thống thiết kế (Design System) bao gồm màu sắc, typography, kích thước nút và hành vi tương tác trên toàn bộ sản phẩm nhằm giảm tải nhận thức của người dùng.
+
+2. **Nguyên tắc Phản hồi rõ ràng (Feedback & Affordance)**:
+   Hệ thống cần phản hồi ngay lập tức sau mỗi thao tác của người dùng (ví dụ: đổi màu nút khi di chuột, hiển thị thanh tiến trình khi tải trang) để họ biết hành động đã được ghi nhận.
+
+3. **Hệ thống cấp bậc trực quan (Visual Hierarchy)**:
+   Sử dụng kích thước, màu sắc và độ tương phản hợp lý để hướng mắt người dùng vào các thành phần quan trọng trước (như nút Kêu gọi hành động - CTA, Tiêu đề chính).
+
+4. **Tối giản và Giảm tải Nhận thức (Simplicity & Cognitive Load)**:
+   Loại bỏ các yếu tố không cần thiết, sắp xếp khoảng trắng (White space) hợp lý để giao diện sạch sẽ, giúp người dùng dễ dàng tìm thấy thông tin quan trọng mà không bị rối mắt.
+
+5. **Thiết kế hướng người dùng & Khả năng tiếp cận (User-Centric & Accessibility)**:
+   Đảm bảo sản phẩm dễ dùng cho mọi đối tượng (kể cả người khiếm thị với độ tương phản màu tốt, hỗ trợ đọc màn hình) và tối ưu hóa hiển thị responsive trên mọi thiết bị."
+Tóm tắt sự khác biệt giữa LoRA và QLoRA.,LoRA là phương pháp fine-tune hiệu quả bằng cách thêm các ma trận rank thấp vào mô hình ban đầu đã đóng băng. QLoRA cải tiến LoRA bằng cách lượng tử hóa mô hình ban đầu xuống dạng 4-bit (NF4) để tiết kiệm VRAM nhiều hơn nữa và sử dụng paged optimizers để tránh OOM.,"### Response:
+Sự khác biệt cốt lõi giữa LoRA và QLoRA nằm ở định dạng lưu trữ trọng số của mô hình nền (Base Model) và cách tối ưu hóa bộ nhớ VRAM:
+
+| Đặc điểm | LoRA (Low-Rank Adaptation) | QLoRA (Quantized Low-Rank Adaptation) |
+| :--- | :--- | :--- |
+| **Định dạng Base Model** | Thường là FP16 hoặc BF16 (16-bit) | Lượng tử hóa xuống 4-bit (dạng NF4 - NormalFloat 4) |
+| **Bộ nhớ VRAM** | Trung bình (~28GB cho mô hình 7B) | Rất thấp (~10GB cho mô hình 7B, chạy được trên GPU tiêu dùng) |
+| **Kỹ thuật bổ trợ** | Không bắt buộc | Dùng **Double Quantization** (nén hằng số lượng tử) và **Paged Optimizers** (tránh OOM) |
+| **Adapters** | FP16/BF16 adapters | BF16/FP16 adapters gắn trên nền base 4-bit |
+| **Hiệu năng (Quality)** | Gần tương đương Full Fine-Tuning | Tương đương hoặc tốt hơn LoRA FP16 nhờ bảo toàn chất lượng qua NF4 |"
+"Phân biệt prompt engineering, RAG, và fine-tuning.",Prompt engineering là viết câu lệnh tốt để lấy câu trả lời. RAG là tìm kiếm thông tin từ tài liệu bên ngoài rồi đưa vào prompt cho mô hình đọc. Fine-tuning là huấn luyện lại mô hình trên tập dữ liệu của riêng mình để thay đổi trọng số.,"### Response:
+Đây là ba phương pháp tối ưu hóa mô hình ngôn ngữ lớn (LLM) từ dễ đến khó, phục vụ cho các mục đích khác nhau:
+
+1. **Prompt Engineering (Kỹ nghệ Gợi ý)**:
+   - **Cách hoạt động**: Điều chỉnh cách đặt câu hỏi, cấu trúc ngữ cảnh hoặc thêm ví dụ (Few-shot) vào câu lệnh mà không thay đổi bất kỳ tham số hay cơ sở dữ liệu nào.
+   - **Mục đích**: Thay đổi hành vi đầu ra nhanh chóng, phù hợp cho các tác vụ chung.
+   - **Ưu/Nhược**: Thực hiện ngay lập tức, chi phí bằng 0 nhưng bị giới hạn bởi độ dài ngữ cảnh (Context Window).
+
+2. **RAG (Retrieval-Augmented Generation - Tạo lập tăng cường truy xuất)**:
+   - **Cách hoạt động**: Kết nối LLM với một cơ sở dữ liệu bên ngoài. Khi có câu hỏi, hệ thống tìm các tài liệu liên quan nhất rồi nhồi vào context để mô hình trả lời.
+   - **Mục đích**: Cung cấp kiến thức mới, dữ liệu nội bộ cập nhật theo thời gian thực và hạn chế hallucination (ảo tưởng).
+   - **Ưu/Nhược**: Dễ cập nhật tri thức mới, có thể trích dẫn nguồn nhưng không thay đổi phong cách diễn đạt mặc định của mô hình.
+
+3. **Fine-tuning (Tinh chỉnh mô hình)**:
+   - **Cách hoạt động**: Huấn luyện tiếp mô hình nền trên một tập dữ liệu chuyên biệt để cập nhật trực tiếp trọng số mạng neuron.
+   - **Mục đích**: Dạy mô hình một phong cách diễn đạt mới, định dạng đầu ra cụ thể (như JSON), hoặc tối ưu hóa hiệu suất cho một tác vụ hẹp chuyên sâu.
+   - **Ưu/Nhược**: Định hình sâu sắc phong cách mô hình, giảm chi phí token ngữ cảnh nhưng tốn tài nguyên huấn luyện và không phù hợp để dạy kiến thức cập nhật liên tục."
